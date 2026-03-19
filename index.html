@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backpack Size Guide — 10L to 45L Compared</title>
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --muted: #6b6b6b;
+            --light: #f7f7f7;
+            --white: #ffffff;
+            --border: #e5e5e5;
+            --green: #34a853;
+            --red: #ea4335;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: var(--light);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* Size scale visual */
+        .scale {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .scale h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .scale-visual {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .scale-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scale-bag {
+            border-radius: 10px 10px 6px 6px;
+            background: linear-gradient(135deg, #e8d5b7, #c4a882);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .scale-bag:hover { transform: scale(1.05); }
+
+        .scale-bag .liters {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .scale-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .s10 { width: 36px; height: 48px; background: linear-gradient(135deg, #a8d8ea, #7bb8d4); }
+        .s15 { width: 40px; height: 58px; background: linear-gradient(135deg, #b8e6c8, #7cc496); }
+        .s20 { width: 46px; height: 70px; background: linear-gradient(135deg, #f0d68a, #d4b44c); }
+        .s25 { width: 52px; height: 82px; background: linear-gradient(135deg, #f4a261, #e07b30); }
+        .s30 { width: 58px; height: 96px; background: linear-gradient(135deg, #e07b7b, #c94c4c); }
+        .s35 { width: 64px; height: 108px; background: linear-gradient(135deg, #b07cc4, #8e55a8); }
+        .s40 { width: 70px; height: 120px; background: linear-gradient(135deg, #6b8cce, #4a6baf); }
+        .s45 { width: 76px; height: 134px; background: linear-gradient(135deg, #5a7a5a, #3d5c3d); }
+
+        /* Cards */
+        .cards {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* Backpack illustration */
+        .bag-illustration {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .bag-svg {
+            position: relative;
+        }
+
+        .bag-body {
+            border-radius: 14px 14px 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bag-body::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            border-radius: 6px 6px 0 0;
+            background: inherit;
+            filter: brightness(0.85);
+        }
+
+        .bag-body::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 30%;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .bag-liters {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .bag-liters span {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .b10 { width: 80px; height: 100px; background: linear-gradient(135deg, #a8d8ea, #7bb8d4); }
+        .b15 { width: 88px; height: 115px; background: linear-gradient(135deg, #b8e6c8, #7cc496); }
+        .b20 { width: 96px; height: 130px; background: linear-gradient(135deg, #f0d68a, #d4b44c); }
+        .b25 { width: 104px; height: 145px; background: linear-gradient(135deg, #f4a261, #e07b30); }
+        .b30 { width: 112px; height: 160px; background: linear-gradient(135deg, #e07b7b, #c94c4c); }
+        .b35 { width: 120px; height: 175px; background: linear-gradient(135deg, #b07cc4, #8e55a8); }
+        .b40 { width: 128px; height: 190px; background: linear-gradient(135deg, #6b8cce, #4a6baf); }
+        .b45 { width: 136px; height: 205px; background: linear-gradient(135deg, #5a7a5a, #3d5c3d); }
+
+        .bag-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        /* Card content */
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-content .tagline {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-content .fits {
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem 1rem;
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .fits-title {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .fits-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .fits-item {
+            background: var(--light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .pros h4, .cons h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+        }
+
+        .pros h4 { color: var(--green); }
+        .cons h4 { color: var(--red); }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .pros li::before {
+            content: '+ ';
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .cons li::before {
+            content: '- ';
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .pros li, .cons li {
+            margin-bottom: 0.3rem;
+        }
+
+        .best-for {
+            margin-top: 1rem;
+            padding: 0.6rem 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .best-for strong {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+        }
+
+        /* Quick pick section */
+        .quick-pick {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        .quick-pick h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .pick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .pick-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .pick-card .pick-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pick-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .pick-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pick-card .recommendation {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .card { grid-template-columns: 1fr; gap: 1.5rem; }
+            .bag-illustration { flex-direction: row; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .pick-grid { grid-template-columns: 1fr; }
+            .scale-visual { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>The Backpack<br>Size Guide</h1>
+        <p>From ultralight daypacks to multi-day haulers — every size from 10L to 45L, compared side by side.</p>
+    </section>
+
+    <!-- Size scale -->
+    <section class="scale">
+        <h2>How They Compare at a Glance</h2>
+        <div class="scale-visual">
+            <div class="scale-item">
+                <div class="scale-bag s10"><span class="liters">10</span></div>
+                <span class="scale-label">10L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s15"><span class="liters">15</span></div>
+                <span class="scale-label">15L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s20"><span class="liters">20</span></div>
+                <span class="scale-label">20L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s25"><span class="liters">25</span></div>
+                <span class="scale-label">25L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s30"><span class="liters">30</span></div>
+                <span class="scale-label">30L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s35"><span class="liters">35</span></div>
+                <span class="scale-label">35L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s40"><span class="liters">40</span></div>
+                <span class="scale-label">40L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag s45"><span class="liters">45</span></div>
+                <span class="scale-label">45L</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed cards -->
+    <section class="cards">
+
+        <!-- 10L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b10"><span class="bag-liters">10<span>L</span></span></div>
+                <span class="bag-name">Minimalist</span>
+            </div>
+            <div class="card-content">
+                <h3>10 Liters</h3>
+                <p class="tagline">The essentials-only pack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Phone</span>
+                        <span class="fits-item">Keys</span>
+                        <span class="fits-item">Wallet</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Snack</span>
+                        <span class="fits-item">Light jacket</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Ultra lightweight</li>
+                            <li>Barely notice it's there</li>
+                            <li>Great for short trips</li>
+                            <li>Often packable / foldable</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>No laptop sleeve</li>
+                            <li>Very limited space</li>
+                            <li>Minimal organization</li>
+                            <li>No support structure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Quick errands, bike rides, running to the gym</div>
+            </div>
+        </div>
+
+        <!-- 15L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b15"><span class="bag-liters">15<span>L</span></span></div>
+                <span class="bag-name">Compact</span>
+            </div>
+            <div class="card-content">
+                <h3>15 Liters</h3>
+                <p class="tagline">The light commuter</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">13" laptop</span>
+                        <span class="fits-item">Charger</span>
+                        <span class="fits-item">Notebook</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Lunch</span>
+                        <span class="fits-item">Sunglasses</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits a small laptop</li>
+                            <li>Sleek, low-profile look</li>
+                            <li>Light enough to carry all day</li>
+                            <li>Works as a personal item on flights</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Tight fit for 15"+ laptops</li>
+                            <li>Not much room beyond basics</li>
+                            <li>Limited outer pockets</li>
+                            <li>Can't pack extra layers easily</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Light commutes, coffee shop work, minimalist travelers</div>
+            </div>
+        </div>
+
+        <!-- 20L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b20"><span class="bag-liters">20<span>L</span></span></div>
+                <span class="bag-name">Everyday</span>
+            </div>
+            <div class="card-content">
+                <h3>20 Liters</h3>
+                <p class="tagline">The sweet spot for daily carry</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">15" laptop</span>
+                        <span class="fits-item">Charger + cables</span>
+                        <span class="fits-item">Book</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Lunch</span>
+                        <span class="fits-item">Light jacket</span>
+                        <span class="fits-item">Headphones</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits most laptops comfortably</li>
+                            <li>Room for a full day's gear</li>
+                            <li>Good pocket organization</li>
+                            <li>Doesn't look oversized</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Tight for overnight trips</li>
+                            <li>Not ideal for bulky items</li>
+                            <li>May lack hip belt support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Daily commute, school, day hikes, co-working</div>
+            </div>
+        </div>
+
+        <!-- 25L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b25"><span class="bag-liters">25<span>L</span></span></div>
+                <span class="bag-name">Versatile</span>
+            </div>
+            <div class="card-content">
+                <h3>25 Liters</h3>
+                <p class="tagline">The do-everything daypack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">16" laptop</span>
+                        <span class="fits-item">Charger + accessories</span>
+                        <span class="fits-item">Change of shirt</span>
+                        <span class="fits-item">Rain jacket</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Lunch + snacks</span>
+                        <span class="fits-item">Toiletry pouch</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Can handle a short overnight</li>
+                            <li>Enough room without bulk</li>
+                            <li>Multiple compartments</li>
+                            <li>Great for day hikes with gear</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Slightly bulky for minimal carry</li>
+                            <li>Can get heavy when fully packed</li>
+                            <li>Sometimes too big for personal item</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Day trips, one-bag day-to-night, active commuters</div>
+            </div>
+        </div>
+
+        <!-- 30L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b30"><span class="bag-liters">30<span>L</span></span></div>
+                <span class="bag-name">Weekender</span>
+            </div>
+            <div class="card-content">
+                <h3>30 Liters</h3>
+                <p class="tagline">The one-bag travel pack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Laptop + tablet</span>
+                        <span class="fits-item">2-3 days of clothes</span>
+                        <span class="fits-item">Toiletries</span>
+                        <span class="fits-item">Shoes (compact)</span>
+                        <span class="fits-item">Jacket</span>
+                        <span class="fits-item">Camera</span>
+                        <span class="fits-item">Packing cubes</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Weekend trips in one bag</li>
+                            <li>Usually fits as carry-on</li>
+                            <li>Great organization options</li>
+                            <li>Often has hip belt &amp; sternum strap</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Overkill for daily commute</li>
+                            <li>Noticeable weight when full</li>
+                            <li>May need packing cubes to stay tidy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Weekend getaways, one-bag travel, photography trips</div>
+            </div>
+        </div>
+
+        <!-- 35L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b35"><span class="bag-liters">35<span>L</span></span></div>
+                <span class="bag-name">Travel</span>
+            </div>
+            <div class="card-content">
+                <h3>35 Liters</h3>
+                <p class="tagline">The carry-on sweet spot</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Laptop + chargers</span>
+                        <span class="fits-item">4-5 days of clothes</span>
+                        <span class="fits-item">Toiletry bag</span>
+                        <span class="fits-item">Extra pair of shoes</span>
+                        <span class="fits-item">Jacket</span>
+                        <span class="fits-item">Books / gear</span>
+                        <span class="fits-item">Packing cubes</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Max carry-on size for most airlines</li>
+                            <li>Can do a full week if you pack light</li>
+                            <li>Solid frame &amp; support system</li>
+                            <li>Often has clamshell opening</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Too big for everyday use</li>
+                            <li>Heavy when packed out</li>
+                            <li>Borderline for some budget airlines</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Carry-on travel, digital nomads, week-long trips</div>
+            </div>
+        </div>
+
+        <!-- 40L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b40"><span class="bag-liters">40<span>L</span></span></div>
+                <span class="bag-name">Expedition</span>
+            </div>
+            <div class="card-content">
+                <h3>40 Liters</h3>
+                <p class="tagline">The max carry-on / light trekking pack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Full electronics kit</span>
+                        <span class="fits-item">5-7 days of clothes</span>
+                        <span class="fits-item">Sleeping bag liner</span>
+                        <span class="fits-item">Rain gear</span>
+                        <span class="fits-item">First aid kit</span>
+                        <span class="fits-item">Cooking gear (compact)</span>
+                        <span class="fits-item">Extra shoes</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Enough for extended travel</li>
+                            <li>Great for multi-day hikes</li>
+                            <li>Hip belt distributes weight well</li>
+                            <li>Still fits most carry-on limits</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>May get gate-checked on flights</li>
+                            <li>Heavy — needs good shoulder/hip support</li>
+                            <li>Way too much for daily carry</li>
+                            <li>Harder to navigate crowded places</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Extended travel, backpacking trips, thru-hikes</div>
+            </div>
+        </div>
+
+        <!-- 45L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="bag-body b45"><span class="bag-liters">45<span>L</span></span></div>
+                <span class="bag-name">Hauler</span>
+            </div>
+            <div class="card-content">
+                <h3>45 Liters</h3>
+                <p class="tagline">The full-on adventure pack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Everything in 40L, plus:</span>
+                        <span class="fits-item">Sleeping bag</span>
+                        <span class="fits-item">Camp stove</span>
+                        <span class="fits-item">Extra layers</span>
+                        <span class="fits-item">Tent (if strapped)</span>
+                        <span class="fits-item">7-10 days of gear</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>True multi-day capacity</li>
+                            <li>Full suspension system</li>
+                            <li>Fits sleeping bag + camp gear</li>
+                            <li>External attachment points</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Won't fit carry-on limits</li>
+                            <li>Very heavy when loaded</li>
+                            <li>Overkill for urban travel</li>
+                            <li>Bulky to store</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Multi-day treks, camping, international backpacking</div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Quick pick -->
+    <section class="quick-pick">
+        <h2>Quick Pick</h2>
+        <div class="pick-grid">
+            <div class="pick-card">
+                <div class="pick-emoji">&#9749;</div>
+                <h4>Coffee shop hopper</h4>
+                <p>Laptop, charger, and not much else.</p>
+                <p class="recommendation">&#8594; 15-20L</p>
+            </div>
+            <div class="pick-card">
+                <div class="pick-emoji">&#128692;</div>
+                <h4>Bike commuter</h4>
+                <p>Need it compact and stable on your back.</p>
+                <p class="recommendation">&#8594; 20-25L</p>
+            </div>
+            <div class="pick-card">
+                <div class="pick-emoji">&#9992;&#65039;</div>
+                <h4>Carry-on traveler</h4>
+                <p>One bag, no checked luggage, 3-5 days.</p>
+                <p class="recommendation">&#8594; 30-35L</p>
+            </div>
+            <div class="pick-card">
+                <div class="pick-emoji">&#9968;</div>
+                <h4>Trail hiker</h4>
+                <p>Multi-day with sleeping gear and food.</p>
+                <p class="recommendation">&#8594; 40-45L</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Capacities are approximate and vary by brand. Always check dimensions against your specific needs.</p>
+    </footer>
+
+</body>
+</html>
