@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backpack Size Guide — 10L to 45L Compared</title>
+    <title>Bag Size Guide — Slings &amp; Backpacks Compared</title>
     <style>
         :root {
             --text: #1a1a1a;
@@ -99,6 +99,53 @@
             font-size: 0.7rem;
             color: var(--muted);
             font-weight: 500;
+        }
+
+        /* Sling scale sizes */
+        .ss1 { width: 20px; height: 18px; background: linear-gradient(135deg, #f9c4d2, #e8899e); border-radius: 50% 50% 40% 40%; }
+        .ss2 { width: 24px; height: 22px; background: linear-gradient(135deg, #fbb4a5, #e8806a); border-radius: 50% 50% 40% 40%; }
+        .ss4 { width: 28px; height: 28px; background: linear-gradient(135deg, #c5b3e6, #9b7fd4); border-radius: 50% 50% 40% 40%; }
+        .ss6 { width: 32px; height: 34px; background: linear-gradient(135deg, #a8d8ea, #7bb8d4); border-radius: 50% 50% 40% 40%; }
+        .ss8 { width: 34px; height: 40px; background: linear-gradient(135deg, #b8e6c8, #7cc496); border-radius: 50% 50% 40% 40%; }
+        .ss12 { width: 36px; height: 46px; background: linear-gradient(135deg, #f0d68a, #d4b44c); border-radius: 50% 50% 40% 40%; }
+
+        /* Sling card body shapes */
+        .sling-body {
+            border-radius: 50% 50% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sling-body::after {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 25%;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .sl1 { width: 60px; height: 55px; background: linear-gradient(135deg, #f9c4d2, #e8899e); }
+        .sl2 { width: 68px; height: 65px; background: linear-gradient(135deg, #fbb4a5, #e8806a); }
+        .sl4 { width: 76px; height: 78px; background: linear-gradient(135deg, #c5b3e6, #9b7fd4); }
+        .sl6 { width: 84px; height: 90px; background: linear-gradient(135deg, #a8d8ea, #7bb8d4); }
+        .sl8 { width: 90px; height: 100px; background: linear-gradient(135deg, #b8e6c8, #7cc496); }
+        .sl12 { width: 96px; height: 112px; background: linear-gradient(135deg, #f0d68a, #d4b44c); }
+
+        .sling-strap {
+            position: absolute;
+            top: -4px;
+            right: -8px;
+            width: 20px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-left: none;
+            border-radius: 0 20px 20px 0;
         }
 
         .s10 { width: 36px; height: 48px; background: linear-gradient(135deg, #a8d8ea, #7bb8d4); }
@@ -369,13 +416,313 @@
 <body>
 
     <section class="hero">
-        <h1>The Backpack<br>Size Guide</h1>
-        <p>From ultralight daypacks to multi-day haulers — every size from 10L to 45L, compared side by side.</p>
+        <h1>The Complete<br>Bag Size Guide</h1>
+        <p>From tiny slings to multi-day haulers — every size from 1L to 45L, compared side by side.</p>
     </section>
 
-    <!-- Size scale -->
+    <!-- Slings scale -->
     <section class="scale">
-        <h2>How They Compare at a Glance</h2>
+        <h2>Slings — 1L to 12L</h2>
+        <div class="scale-visual">
+            <div class="scale-item">
+                <div class="scale-bag ss1"><span class="liters">1</span></div>
+                <span class="scale-label">1L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag ss2"><span class="liters">2</span></div>
+                <span class="scale-label">2L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag ss4"><span class="liters">4</span></div>
+                <span class="scale-label">4L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag ss6"><span class="liters">6</span></div>
+                <span class="scale-label">6L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag ss8"><span class="liters">8</span></div>
+                <span class="scale-label">8L</span>
+            </div>
+            <div class="scale-item">
+                <div class="scale-bag ss12"><span class="liters">12</span></div>
+                <span class="scale-label">12L</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sling cards -->
+    <section class="cards">
+
+        <!-- 1L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl1"><div class="sling-strap"></div><span class="bag-liters">1<span>L</span></span></div>
+                <span class="bag-name">Micro Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>1 Liter</h3>
+                <p class="tagline">The phone-and-keys pouch</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Phone</span>
+                        <span class="fits-item">Keys</span>
+                        <span class="fits-item">Card wallet</span>
+                        <span class="fits-item">AirPods</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Barely there — almost weightless</li>
+                            <li>Keeps essentials secure</li>
+                            <li>Great for concerts &amp; events</li>
+                            <li>Replaces bulky pockets</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Can't fit much more than a phone</li>
+                            <li>No water bottle space</li>
+                            <li>Easy to overload the strap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Concerts, festivals, dog walks, quick outings</div>
+            </div>
+        </div>
+
+        <!-- 2L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl2"><div class="sling-strap"></div><span class="bag-liters">2<span>L</span></span></div>
+                <span class="bag-name">Mini Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>2 Liters</h3>
+                <p class="tagline">The everyday essentials sling</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Phone</span>
+                        <span class="fits-item">Wallet</span>
+                        <span class="fits-item">Keys</span>
+                        <span class="fits-item">Sunglasses</span>
+                        <span class="fits-item">Earbuds</span>
+                        <span class="fits-item">Small snack</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Perfect pocket replacement</li>
+                            <li>Comfortable all day</li>
+                            <li>Quick-access front zip</li>
+                            <li>Works crossbody or waist</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>No room for a water bottle</li>
+                            <li>Can feel cramped with bulky items</li>
+                            <li>Limited organization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Running errands, theme parks, casual outings</div>
+            </div>
+        </div>
+
+        <!-- 4L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl4"><div class="sling-strap"></div><span class="bag-liters">4<span>L</span></span></div>
+                <span class="bag-name">Compact Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>4 Liters</h3>
+                <p class="tagline">The sweet spot for slings</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">Phone</span>
+                        <span class="fits-item">Wallet</span>
+                        <span class="fits-item">Small water bottle</span>
+                        <span class="fits-item">Sunglasses</span>
+                        <span class="fits-item">Battery pack</span>
+                        <span class="fits-item">Snacks</span>
+                        <span class="fits-item">Compact camera</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits a small water bottle</li>
+                            <li>Enough for half-day outings</li>
+                            <li>Multiple pockets for organizing</li>
+                            <li>Still slim and unobtrusive</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>No tablet or laptop space</li>
+                            <li>Gets snug with bulky items</li>
+                            <li>Strap can dig in if overloaded</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Sightseeing, farmer's markets, day trips, urban exploring</div>
+            </div>
+        </div>
+
+        <!-- 6L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl6"><div class="sling-strap"></div><span class="bag-liters">6<span>L</span></span></div>
+                <span class="bag-name">Mid Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>6 Liters</h3>
+                <p class="tagline">The tech-carry sling</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">iPad Mini / Kindle</span>
+                        <span class="fits-item">Phone + charger</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Earbuds</span>
+                        <span class="fits-item">Notebook + pen</span>
+                        <span class="fits-item">Snacks</span>
+                        <span class="fits-item">Sunscreen</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits a small tablet</li>
+                            <li>Good for a full day out</li>
+                            <li>Padded strap for comfort</li>
+                            <li>Better organization than smaller slings</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Starts to feel like a small bag</li>
+                            <li>Can swing around when walking fast</li>
+                            <li>Not enough for layers or jackets</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Coffee shops, museums, travel days, light commutes</div>
+            </div>
+        </div>
+
+        <!-- 8L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl8"><div class="sling-strap"></div><span class="bag-liters">8<span>L</span></span></div>
+                <span class="bag-name">Large Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>8 Liters</h3>
+                <p class="tagline">The almost-a-backpack sling</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">iPad / small laptop</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Charger + cables</span>
+                        <span class="fits-item">Light jacket</span>
+                        <span class="fits-item">Book</span>
+                        <span class="fits-item">Snacks</span>
+                        <span class="fits-item">Sunglasses</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits a tablet or 11" laptop</li>
+                            <li>Room for a light jacket</li>
+                            <li>Easy front-swing access</li>
+                            <li>Enough for a full day out</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>One-shoulder fatigue on long days</li>
+                            <li>Less stable than a backpack</li>
+                            <li>Can look bulky when packed full</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Commuting, travel days, photography, day hikes</div>
+            </div>
+        </div>
+
+        <!-- 12L -->
+        <div class="card">
+            <div class="bag-illustration">
+                <div class="sling-body sl12"><div class="sling-strap"></div><span class="bag-liters">12<span>L</span></span></div>
+                <span class="bag-name">Max Sling</span>
+            </div>
+            <div class="card-content">
+                <h3>12 Liters</h3>
+                <p class="tagline">The crossbody daypack</p>
+                <div class="fits">
+                    <p class="fits-title">What fits inside</p>
+                    <div class="fits-items">
+                        <span class="fits-item">13" laptop</span>
+                        <span class="fits-item">Water bottle</span>
+                        <span class="fits-item">Charger + battery</span>
+                        <span class="fits-item">Jacket</span>
+                        <span class="fits-item">Lunch</span>
+                        <span class="fits-item">Book</span>
+                        <span class="fits-item">Headphones</span>
+                        <span class="fits-item">Notebook</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Fits a 13" laptop</li>
+                            <li>Backpack capacity, sling access</li>
+                            <li>Multiple compartments</li>
+                            <li>Great for commuters who hate backpacks</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Shoulder strain when heavy</li>
+                            <li>Basically a small backpack at this point</li>
+                            <li>Can be awkward to swing front-to-back</li>
+                            <li>May need stabilizer strap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="best-for"><strong>Best for:</strong> Urban commute, light travel, people who prefer crossbody access</div>
+            </div>
+        </div>
+
+    </section>
+
+    <hr class="divider">
+
+    <!-- Backpacks scale -->
+    <section class="scale">
+        <h2>Backpacks — 10L to 45L</h2>
         <div class="scale-visual">
             <div class="scale-item">
                 <div class="scale-bag s10"><span class="liters">10</span></div>
@@ -775,28 +1122,46 @@
         <h2>Quick Pick</h2>
         <div class="pick-grid">
             <div class="pick-card">
+                <div class="pick-emoji">&#127911;</div>
+                <h4>Concert / event goer</h4>
+                <p>Phone, wallet, keys — hands free.</p>
+                <p class="recommendation">&#8594; 1-2L sling</p>
+            </div>
+            <div class="pick-card">
+                <div class="pick-emoji">&#128247;</div>
+                <h4>Tourist / explorer</h4>
+                <p>Camera, water, snacks for a day out.</p>
+                <p class="recommendation">&#8594; 4-6L sling</p>
+            </div>
+            <div class="pick-card">
+                <div class="pick-emoji">&#128241;</div>
+                <h4>Tablet commuter</h4>
+                <p>iPad, charger, book — no backpack needed.</p>
+                <p class="recommendation">&#8594; 8-12L sling</p>
+            </div>
+            <div class="pick-card">
                 <div class="pick-emoji">&#9749;</div>
                 <h4>Coffee shop hopper</h4>
                 <p>Laptop, charger, and not much else.</p>
-                <p class="recommendation">&#8594; 15-20L</p>
+                <p class="recommendation">&#8594; 15-20L backpack</p>
             </div>
             <div class="pick-card">
                 <div class="pick-emoji">&#128692;</div>
                 <h4>Bike commuter</h4>
                 <p>Need it compact and stable on your back.</p>
-                <p class="recommendation">&#8594; 20-25L</p>
+                <p class="recommendation">&#8594; 20-25L backpack</p>
             </div>
             <div class="pick-card">
                 <div class="pick-emoji">&#9992;&#65039;</div>
                 <h4>Carry-on traveler</h4>
                 <p>One bag, no checked luggage, 3-5 days.</p>
-                <p class="recommendation">&#8594; 30-35L</p>
+                <p class="recommendation">&#8594; 30-35L backpack</p>
             </div>
             <div class="pick-card">
                 <div class="pick-emoji">&#9968;</div>
                 <h4>Trail hiker</h4>
                 <p>Multi-day with sleeping gear and food.</p>
-                <p class="recommendation">&#8594; 40-45L</p>
+                <p class="recommendation">&#8594; 40-45L backpack</p>
             </div>
         </div>
     </section>
